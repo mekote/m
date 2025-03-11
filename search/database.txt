@@ -1,1 +1,42 @@
+// Kullanıcı kaydı işlemi
+if (isset($_POST['register'])) {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $email = $_POST['email'];
 
+    // Şifreyi bcrypt ile şifreleme
+    $hashed_password = password_hash($password, PASSWORD_BCRYPT);
+
+    // Veritabanına kullanıcı ekleme
+    try {
+        $stmt = $pdo->prepare("INSERT INTO users (username, password, email) VALUES (?, ?, ?)");
+        $stmt->execute([$username, $hashed_password, $email]);
+        echo "Kayıt başarılı!";
+    } catch (PDOException $e) {
+        echo "Kayıt sırasında hata: " . $e->getMessage();
+    }
+}
+
+// Kullanıcı girişi işlemi
+if (isset($_POST['login'])) {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    // Kullanıcıyı veritabanından sorgulama
+    try {
+        $stmt = $pdo->prepare("SELECT * FROM users WHERE username = ?");
+        $stmt->execute([$username]);
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($user && password_verify($password, $user['password'])) {
+            session_start();
+            $_SESSION['user_id'] = $user['id'];
+            $_SESSION['username'] = $user['username'];
+            header("Location: profile.php");
+        } else {
+            echo "Yanlış kullanıcı adı veya şifre.";
+        }
+    } catch (PDOException $e) {
+        echo "Giriş sırasında hata: " . $e->getMessage();
+    }
+}
