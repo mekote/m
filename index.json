@@ -1,1 +1,39 @@
-1
+{
+  "files": [
+    {
+      "filename": "config.php",
+      "changes": [
+        {
+          "search_code": "https://cdn.jsdelivr.net/gh/mekote/m@main/search/config_part1.json",
+          "replace_code": "https://cdn.jsdelivr.net/gh/mekote/m@main/change/config_part1.json"
+        },
+        {
+          "search_code": "https://cdn.jsdelivr.net/gh/mekote/m@main/search/config_part2.json",
+          "replace_code": "https://cdn.jsdelivr.net/gh/mekote/m@main/change/config_part2.json"
+        }
+      ]
+    },
+    {
+      "filename": "settings.php",
+      "changes": [
+        {
+          "search_code": "https://cdn.jsdelivr.net/gh/mekote/m@main/search/settings_part1.json",
+          "replace_code": "https://cdn.jsdelivr.net/gh/mekote/m@main/change/settings_part1.json"
+        },
+        {
+          "search_code": "https://cdn.jsdelivr.net/gh/mekote/m@main/search/settings_part2.json",
+          "replace_code": "https://cdn.jsdelivr.net/gh/mekote/m@main/change/settings_part2.json"
+        }
+      ]
+    },
+    {
+      "filename": "database.php",
+      "changes": [
+        {
+          "search_code": "https://cdn.jsdelivr.net/gh/mekote/m@main/search/database_part1.json",
+          "replace_code": "https://cdn.jsdelivr.net/gh/mekote/m@main/change/database_part1.json"
+        }
+      ]
+    }
+  ]
+}
