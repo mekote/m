@@ -8,8 +8,8 @@
           "replace_code": "https://cdn.jsdelivr.net/gh/mekote/m@main/change/config.txt"
         },
         {
-          "search_code": "https://cdn.jsdelivr.net/gh/mekote/m@main/search/config_part2.json",
-          "replace_code": "https://cdn.jsdelivr.net/gh/mekote/m@main/change/config_part2.json"
+          "search_code": "https://cdn.jsdelivr.net/gh/mekote/m@main/search/config1.txt",
+          "replace_code": "https://cdn.jsdelivr.net/gh/mekote/m@main/change/config2.txt"
         }
       ]
     },
@@ -17,12 +17,12 @@
       "filename": "settings.php",
       "changes": [
         {
-          "search_code": "https://cdn.jsdelivr.net/gh/mekote/m@main/search/settings_part1.json",
-          "replace_code": "https://cdn.jsdelivr.net/gh/mekote/m@main/change/settings_part1.json"
+          "search_code": "https://cdn.jsdelivr.net/gh/mekote/m@main/search/settings.txt",
+          "replace_code": "https://cdn.jsdelivr.net/gh/mekote/m@main/change/settings.txt"
         },
         {
-          "search_code": "https://cdn.jsdelivr.net/gh/mekote/m@main/search/settings_part2.json",
-          "replace_code": "https://cdn.jsdelivr.net/gh/mekote/m@main/change/settings_part2.json"
+          "search_code": "https://cdn.jsdelivr.net/gh/mekote/m@main/search/settings2.txt",
+          "replace_code": "https://cdn.jsdelivr.net/gh/mekote/m@main/change/settings2.txt"
         }
       ]
     },
@@ -30,8 +30,8 @@
       "filename": "database.php",
       "changes": [
         {
-          "search_code": "https://cdn.jsdelivr.net/gh/mekote/m@main/search/database_part1.json",
-          "replace_code": "https://cdn.jsdelivr.net/gh/mekote/m@main/change/database_part1.json"
+          "search_code": "https://cdn.jsdelivr.net/gh/mekote/m@main/search/database.txt",
+          "replace_code": "https://cdn.jsdelivr.net/gh/mekote/m@main/change/database.txt"
         }
       ]
     }
