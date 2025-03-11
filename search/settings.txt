@@ -1,1 +1,87 @@
+<?php
+// Veritabanı bağlantısı
+$host = 'localhost';
+$dbname = 'user_system';
+$username = 'root';
+$password = '';
 
+// PDO ile veritabanına bağlanma
+try {
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    echo 'Bağlantı Hatası: ' . $e->getMessage();
+    exit();
+}
+
+// Kullanıcı kaydı işlemi
+if (isset($_POST['register'])) {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $email = $_POST['email'];
+
+    // Şifreyi bcrypt ile şifreleme
+    $hashed_password = password_hash($password, PASSWORD_BCRYPT);
+
+    // Veritabanına kullanıcı ekleme
+    try {
+        $stmt = $pdo->prepare("INSERT INTO users (username, password, email) VALUES (?, ?, ?)");
+        $stmt->execute([$username, $hashed_password, $email]);
+        echo "Kayıt başarılı!";
+    } catch (PDOException $e) {
+        echo "Kayıt sırasında hata: " . $e->getMessage();
+    }
+}
+
+// Kullanıcı girişi işlemi
+if (isset($_POST['login'])) {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    // Kullanıcıyı veritabanından sorgulama
+    try {
+        $stmt = $pdo->prepare("SELECT * FROM users WHERE username = ?");
+        $stmt->execute([$username]);
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($user && password_verify($password, $user['password'])) {
+            session_start();
+            $_SESSION['user_id'] = $user['id'];
+            $_SESSION['username'] = $user['username'];
+            header("Location: profile.php");
+        } else {
+            echo "Yanlış kullanıcı adı veya şifre.";
+        }
+    } catch (PDOException $e) {
+        echo "Giriş sırasında hata: " . $e->getMessage();
+    }
+}
+
+// Profil düzenleme işlemi
+if (isset($_POST['update_profile'])) {
+    session_start();
+    $user_id = $_SESSION['user_id'];
+    $new_username = $_POST['new_username'];
+    $new_email = $_POST['new_email'];
+
+    try {
+        $stmt = $pdo->prepare("UPDATE users SET username = ?, email = ? WHERE id = ?");
+        $stmt->execute([$new_username, $new_email, $user_id]);
+        echo "Profil başarıyla güncellendi!";
+    } catch (PDOException $e) {
+        echo "Profil güncellenirken hata: " . $e->getMessage();
+    }
+}
+
+// Kullanıcı bilgilerini çekme
+if (isset($_SESSION['user_id'])) {
+    $user_id = $_SESSION['user_id'];
+    try {
+        $stmt = $pdo->prepare("SELECT * FROM users WHERE id = ?");
+        $stmt->execute([$user_id]);
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        echo "Kullanıcı bilgileri alınırken hata: " . $e->getMessage();
+    }
+}
+?>
