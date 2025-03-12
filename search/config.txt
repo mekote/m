@@ -1,4 +1,12 @@
-$host = 'localhost';
-$dbname = 'user_system';
-$username = 'root';
-$password = '';
+        if ($user && password_verify($password, $user['password'])) {
+            session_start();
+            $_SESSION['user_id'] = $user['id'];
+            $_SESSION['username'] = $user['username'];
+            header("Location: profile.php");
+        } else {
+            echo "Yanlış kullanıcı adı veya şifre.";
+        }
+    } catch (PDOException $e) {
+        echo "Giriş sırasında hata: " . $e->getMessage();
+    }
+}
