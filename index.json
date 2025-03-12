@@ -6,10 +6,6 @@
         {
           "search_code": "https://cdn.jsdelivr.net/gh/mekote/m@main/search/config.txt",
           "replace_code": "https://cdn.jsdelivr.net/gh/mekote/m@main/change/config.txt"
-        },
-        {
-          "search_code": "https://cdn.jsdelivr.net/gh/mekote/m@main/search/config2.txt",
-          "replace_code": "https://cdn.jsdelivr.net/gh/mekote/m@main/change/config2.txt"
         }
       ]
     },
@@ -19,10 +15,6 @@
         {
           "search_code": "https://cdn.jsdelivr.net/gh/mekote/m@main/search/settings.txt",
           "replace_code": "https://cdn.jsdelivr.net/gh/mekote/m@main/change/settings.txt"
-        },
-        {
-          "search_code": "https://cdn.jsdelivr.net/gh/mekote/m@main/search/settings2.txt",
-          "replace_code": "https://cdn.jsdelivr.net/gh/mekote/m@main/change/settings2.txt"
         }
       ]
     },
