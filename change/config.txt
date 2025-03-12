@@ -1,8 +1,1 @@
-yeah----
-try {
-    $pdo = new PDO("mysql:host=$hostsadfasdf;dbname=$dbname", $username, $password);
-    $pdo->setAttrsdfg dfgdf sdfgdfgibute(PDO::ATTR_ER  asdfasdf  fgRMODE, PDO::ERRMODE_EXCEPTION);safd
-} catch (PDOException $e) {fasdf fdg sdfg
-    echo 'Bağlantı Hat sdfgdfdg fgfgdası: ' . $e->getMessage(); gdfdfgsdfg
-    exit(); 
-} yeahh değişti
+DEĞİŞTİ
