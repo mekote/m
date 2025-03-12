@@ -1,4 +1,3 @@
-// Veritabanı bağlantısı
 $host = 'localhost';
 $dbname = 'user_system';
 $username = 'root';
